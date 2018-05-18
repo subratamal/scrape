@@ -1,12 +1,13 @@
 {
-	"name": "lynda-videos-scrapping",
+	"name": "lynda-scrape",
 	"version": "1.0.0",
-	"main": "index.js",
+	"main": "src/index.js",
 	"author": "Subrat (06.subrata@gmail.com)",
 	"license": "MIT",
 	"dependencies": {
 		"puppeteer": "^1.4.0",
-		"shelljs": "^0.8.2"
+		"shelljs": "^0.8.2",
+		"signale": "^1.0.1"
 	},
 	"engines": {
 		"node": ">=7.6.0"

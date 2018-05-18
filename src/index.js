@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
+const signale = require('signale');
 
 let browser = null;
 let page = null;
@@ -18,12 +19,9 @@ const courses = {
   },
 };
 
-promise = new Promise(function(res, rej) {
-  res(4);
-});
-promise.then(_ => {
-  console.log(_);
-});
+const config = {
+  PAGE_SIZE: 10,
+};
 
 // Launching browser instance and creating user profile.
 (async () => {
@@ -32,7 +30,7 @@ promise.then(_ => {
     userDataDir,
     executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
   });
-  console.log(await browser.version());
+  signale.info(await browser.version());
 
   page = await browser.newPage();
   await page.setViewport({
@@ -80,14 +78,21 @@ promise.then(_ => {
     const hrefs = await page.$$eval('.course-chapter__items .toc-item', elems => elems.map(elem => elem.href));
     // console.log(hrefs);
     courses[courseName].chapters = hrefs;
+    // const { videoUrls } = await chapterUrlsScrape(courses, courseName, 0, 10);
 
-    const { videoUrls } = await chapterUrlsScrape(courses, courseName, 0, 10);
-    console.log(videoUrls);
+    const chapterUrlsScrapePromises = [];
+    const pageNos = Math.ceil(hrefs.length / config.PAGE_SIZE);
+    for (let idx = 0; idx < 2; idx += 1) {
+      chapterUrlsScrapePromises.push(chapterUrlsScrape(courses, courseName, idx, config.PAGE_SIZE));
+    }
+
+    const videoUrls = await Promise.all(...chapterUrlsScrapePromises);
+    signale.success(`Video URLs prepared for Course Name "${courseName}": ${videoUrls.join('\n')}`);
   };
 
   await courseChapterScrapeFn('node-js-essential-training');
 
-  // await browser.close();
+  await browser.close();
 })();
 
 // eslint-disable-next-line no-underscore-dangle
