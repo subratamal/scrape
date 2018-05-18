@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const shell = require('shelljs');
 const signale = require('signale');
+const { range } = require('./utils.js');
 
 let browser = null;
 let page = null;
@@ -42,15 +43,21 @@ const config = {
     waitUntil: 'networkidle2',
   });
 
-  const chapterUrlsScrape = async (coursesL, courseName, pageNo, pageSize) => {
+  const chapterUrlsScrape = async (courseName, options) => {
+    const {
+      courses,
+      pageNo,
+      pageSize,
+      chapterPagesCached = [],
+    } = options;
+
     const {
       chapters,
-    } = coursesL[courseName];
-    const sNO = (pageNo * pageSize) < chapters.length ? (pageNo * pageSize) : chapters.length;
-    const eNo = ((pageNo + 1) * pageSize) < chapters.length ? ((pageNo + 1) * pageSize) :
-      chapters.length;
+    } = courses[courseName];
 
-    const chapterPagesCached = [];
+    const sNO = (pageNo * pageSize) < chapters.length ? (pageNo * pageSize) : chapters.length;
+    const eNo = ((pageNo + 1) * pageSize) < chapters.length ? ((pageNo + 1) * pageSize) : chapters.length;
+
     const videoUrlPromises = chapters.slice(sNO, eNo).map(async (href, idx) => {
       const chapterPage = await (chapterPagesCached[idx] || browser.newPage());
       chapterPagesCached.push(chapterPage);
@@ -65,8 +72,7 @@ const config = {
     });
 
     const videoUrls = await Promise.all(videoUrlPromises);
-    // await console.log(videoUrls);
-    return { videoUrls, chapterPagesCached };
+    return { videoUrls };
   };
 
   const courseChapterScrapeFn = async (courseName) => {
@@ -80,14 +86,19 @@ const config = {
     courses[courseName].chapters = hrefs;
     // const { videoUrls } = await chapterUrlsScrape(courses, courseName, 0, 10);
 
-    const chapterUrlsScrapePromises = [];
+    const chapterPagesCached = range(config.PAGE_SIZE).map(() => browser.newPage());
+
+    const videoUrlsAll = [];
     const pageNos = Math.ceil(hrefs.length / config.PAGE_SIZE);
-    for (let idx = 0; idx < 2; idx += 1) {
-      chapterUrlsScrapePromises.push(chapterUrlsScrape(courses, courseName, idx, config.PAGE_SIZE));
+    /* eslint-disable no-await-in-loop */
+    for (let idx = 0; idx < pageNos; idx += 1) {
+      const { videoUrls } = await chapterUrlsScrape(courseName, {
+        courses, pageNo: idx, pageSize: config.PAGE_SIZE, chapterPagesCached,
+      });
+      videoUrlsAll.push(...videoUrls);
     }
 
-    const videoUrls = await Promise.all(...chapterUrlsScrapePromises);
-    signale.success(`Video URLs prepared for Course Name "${courseName}": ${videoUrls.join('\n')}`);
+    signale.success(`Video URLs prepared for Course Name "${courseName}": ${videoUrlsAll.join('\n')}`);
   };
 
   await courseChapterScrapeFn('node-js-essential-training');
