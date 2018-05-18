@@ -4,12 +4,9 @@ const fs = require('fs');
 const shell = require('shelljs');
 const signale = require('signale');
 const { range } = require('./utils.js');
+const EventEmitter = require('events');
 
-let browser = null;
-let page = null;
-const userDataDir = path.join(__dirname, '../puppeteer-data-dir');
-
-const courses = {
+const coursesMetaConfig = {
   'node-js-essential-training': {
     root: 'https://www.linkedin.com/learning/node-js-essential-training',
     chapters: [],
@@ -24,28 +21,68 @@ const config = {
   PAGE_SIZE: 10,
 };
 
-// Launching browser instance and creating user profile.
-(async () => {
-  browser = await puppeteer.launch({
-    headless: false,
-    userDataDir,
-    executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
-  });
-  signale.info(await browser.version());
+class Scrape extends EventEmitter {
+  constructor(browser = {}, page = {}) {
+    super();
+    this.browser = browser;
+    this.page = page;
+  }
 
-  page = await browser.newPage();
-  await page.setViewport({
-    width: 1500,
-    height: 1024,
-  });
-  await page.setBypassCSP(true);
-  await page.goto('https://www.linkedin.com/learning/me', {
-    waitUntil: 'networkidle2',
-  });
-
-  const chapterUrlsScrape = async (courseName, options) => {
+  async createBrowser(browserOptions = {}) {
     const {
-      courses,
+      headless,
+      userDataDir,
+      executablePath,
+    } = browserOptions;
+
+    this.browser = await puppeteer.launch({
+      headless,
+      userDataDir,
+      executablePath,
+    });
+
+    signale.info(`Browser version: ${await this.browser.version()}`);
+  }
+
+  async createPage(pageOptions) {
+    const {
+      width,
+      height,
+      setBypassCSP,
+    } = pageOptions;
+
+    this.page = await this.browser.newPage();
+    await this.page.setViewport({
+      width,
+      height,
+    });
+    await this.page.setBypassCSP(setBypassCSP);
+  }
+
+  async boot() {
+    await this.createBrowser({
+      headless: false,
+      userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
+      executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
+    });
+
+    await this.createPage({
+      width: 1500,
+      height: 1024,
+      setBypassCSP: true,
+    });
+
+    await this.page.goto('https://www.linkedin.com/learning/me', {
+      waitUntil: 'networkidle2',
+    });
+
+    await this.getCourseChapterMeta('node-js-essential-training');
+    await this.getAllChapterURLsForCourse('node-js-essential-training');
+  }
+
+  async getChapterURLsForCourse(courseName, options) {
+    const {
+      coursesMetaConfig,
       pageNo,
       pageSize,
       chapterPagesCached = [],
@@ -53,13 +90,13 @@ const config = {
 
     const {
       chapters,
-    } = courses[courseName];
+    } = coursesMetaConfig[courseName];
 
     const sNO = (pageNo * pageSize) < chapters.length ? (pageNo * pageSize) : chapters.length;
     const eNo = ((pageNo + 1) * pageSize) < chapters.length ? ((pageNo + 1) * pageSize) : chapters.length;
 
     const videoUrlPromises = chapters.slice(sNO, eNo).map(async (href, idx) => {
-      const chapterPage = await (chapterPagesCached[idx] || browser.newPage());
+      const chapterPage = await (chapterPagesCached[idx] || this.browser.newPage());
       chapterPagesCached.push(chapterPage);
       await chapterPage.goto(href, {
         waitUntil: 'networkidle2',
@@ -73,38 +110,42 @@ const config = {
 
     const videoUrls = await Promise.all(videoUrlPromises);
     return { videoUrls };
-  };
+  }
 
-  const courseChapterScrapeFn = async (courseName) => {
-    const url = courses[courseName].root;
-    await page.goto(url);
-    // eslint-disable-next-line no-unused-vars
-    page.evaluate(_ => window.scrollBy(0, window.innerHeight));
-    await page.waitForSelector('.course-chapter__items .toc-item');
-    const hrefs = await page.$$eval('.course-chapter__items .toc-item', elems => elems.map(elem => elem.href));
-    // console.log(hrefs);
-    courses[courseName].chapters = hrefs;
-    // const { videoUrls } = await chapterUrlsScrape(courses, courseName, 0, 10);
-
-    const chapterPagesCached = range(config.PAGE_SIZE).map(() => browser.newPage());
+  async getAllChapterURLsForCourse(courseName) {
+    const chapterPagesCached = range(config.PAGE_SIZE).map(() => this.browser.newPage());
 
     const videoUrlsAll = [];
-    const pageNos = Math.ceil(hrefs.length / config.PAGE_SIZE);
+    const { chapters } = coursesMetaConfig[courseName];
+    const pageNos = Math.ceil(chapters.length / config.PAGE_SIZE);
     /* eslint-disable no-await-in-loop */
     for (let idx = 0; idx < pageNos; idx += 1) {
-      const { videoUrls } = await chapterUrlsScrape(courseName, {
-        courses, pageNo: idx, pageSize: config.PAGE_SIZE, chapterPagesCached,
+      const { videoUrls } = await this.getChapterURLsForCourse(courseName, {
+        coursesMetaConfig,
+        pageNo: idx,
+        pageSize: config.PAGE_SIZE,
+        chapterPagesCached,
       });
       videoUrlsAll.push(...videoUrls);
     }
 
     signale.success(`Video URLs prepared for Course Name "${courseName}": ${videoUrlsAll.join('\n')}`);
-  };
+  }
 
-  await courseChapterScrapeFn('node-js-essential-training');
+  async getCourseChapterMeta(courseName) {
+    const url = coursesMetaConfig[courseName].root;
+    await this.page.goto(url);
+    // eslint-disable-next-line no-unused-vars
+    this.page.evaluate(_ => window.scrollBy(0, window.innerHeight));
+    await this.page.waitForSelector('.course-chapter__items .toc-item');
+    const hrefs = await this.page.$$eval('.course-chapter__items .toc-item', elems => elems.map(elem => elem.href));
+    // console.log(hrefs);
+    coursesMetaConfig[courseName].chapters = hrefs;
+    // const { videoUrls } = await chapterUrlsScrape(coursesMetaConfig, courseName, 0, 10);
+  }
+}
 
-  await browser.close();
-})();
+new Scrape().boot();
 
 // eslint-disable-next-line no-underscore-dangle
 // await page._client.send('Page.setDownloadBehavior', {
@@ -130,17 +171,4 @@ const config = {
 
 // page._client.on('Network.dataReceived', (_) => {
 //   console.log('Network.dataReceived called...');
-// });
-
-// await page.evaluate(async () => {
-//   debugger;
-//   const tmpDownloadAnchor = document.createElement('a');
-//   tmpDownloadAnchor.setAttribute('href', 'https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_12_01_XR15_nextsteps.mp4?MMbIfDvKTLdnlG1EjMr3m9mgmnJlkBuErsBQZFEWQkvc_4w-gG0GfqhalqMcGbislZo8F_UzszJONRS1lIOSmrpZZ7qI3ADjHYUFiC_VROaMmK340OroWGNaSYZYK6pR2q-BFJ2YQuwNdxq65SiL2VUQYL48Nm_AV8dw4pCjYUYn9LaLqA-9ug');
-//   tmpDownloadAnchor.setAttribute('download', 'video.mp4');
-//   tmpDownloadAnchor.setAttribute('target', '_blank');
-//   tmpDownloadAnchor.innerText = 'Download';
-
-//   const courseAnchor = document.querySelector('a[href="/learning/node-js-essential-training"]');
-//   courseAnchor.parentNode.replaceChild(tmpDownloadAnchor, courseAnchor);
-//   tmpDownloadAnchor.click();
 // });
