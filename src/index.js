@@ -1,21 +1,15 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
-const fs = require('fs');
 const shell = require('shelljs');
 const signale = require('signale');
-const { range } = require('./utils.js');
+const {
+  range,
+  jsonReaderSync,
+  jsonWriter,
+} = require('./utils.js');
 const EventEmitter = require('events');
 
-const coursesMetaConfig = {
-  'node-js-essential-training': {
-    root: 'https://www.linkedin.com/learning/node-js-essential-training',
-    chapters: [],
-  },
-  'learning-react-native-2': {
-    root: 'https://www.linkedin.com/learning/learning-react-native-2',
-    chapters: [],
-  },
-};
+const coursesMetaConfig = jsonReaderSync(path.join(__dirname, './config/courses.json'));
 
 const config = {
   PAGE_SIZE: 10,
@@ -59,17 +53,29 @@ class Scrape extends EventEmitter {
     await this.page.setBypassCSP(setBypassCSP);
   }
 
-  async boot() {
+  async boot(browserOptions = {}, pageOptions = {}) {
+    const {
+      headless,
+      userDataDir,
+      executablePath,
+    } = browserOptions;
+
+    const {
+      width,
+      height,
+      setBypassCSP,
+    } = pageOptions;
+
     await this.createBrowser({
-      headless: false,
-      userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
-      executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
+      headless,
+      userDataDir,
+      executablePath,
     });
 
     await this.createPage({
-      width: 1500,
-      height: 1024,
-      setBypassCSP: true,
+      width,
+      height,
+      setBypassCSP,
     });
 
     await this.page.goto('https://www.linkedin.com/learning/me', {
@@ -78,24 +84,24 @@ class Scrape extends EventEmitter {
 
     await this.getCourseChapterMeta('node-js-essential-training');
     await this.getAllChapterURLsForCourse('node-js-essential-training');
+    await this.browser.close();
   }
 
   async getChapterURLsForCourse(courseName, options) {
     const {
-      coursesMetaConfig,
       pageNo,
       pageSize,
       chapterPagesCached = [],
     } = options;
 
     const {
-      chapters,
+      chapterURLs,
     } = coursesMetaConfig[courseName];
 
-    const sNO = (pageNo * pageSize) < chapters.length ? (pageNo * pageSize) : chapters.length;
-    const eNo = ((pageNo + 1) * pageSize) < chapters.length ? ((pageNo + 1) * pageSize) : chapters.length;
+    const sNO = (pageNo * pageSize) < chapterURLs.length ? (pageNo * pageSize) : chapterURLs.length;
+    const eNo = ((pageNo + 1) * pageSize) < chapterURLs.length ? ((pageNo + 1) * pageSize) : chapterURLs.length;
 
-    const videoUrlPromises = chapters.slice(sNO, eNo).map(async (href, idx) => {
+    const videoUrlPromises = chapterURLs.slice(sNO, eNo).map(async (href, idx) => {
       const chapterPage = await (chapterPagesCached[idx] || this.browser.newPage());
       chapterPagesCached.push(chapterPage);
       await chapterPage.goto(href, {
@@ -109,18 +115,24 @@ class Scrape extends EventEmitter {
     });
 
     const videoUrls = await Promise.all(videoUrlPromises);
-    return { videoUrls };
+    return {
+      videoUrls,
+    };
   }
 
   async getAllChapterURLsForCourse(courseName) {
     const chapterPagesCached = range(config.PAGE_SIZE).map(() => this.browser.newPage());
 
     const videoUrlsAll = [];
-    const { chapters } = coursesMetaConfig[courseName];
-    const pageNos = Math.ceil(chapters.length / config.PAGE_SIZE);
+    const {
+      chapterURLs,
+    } = coursesMetaConfig[courseName];
+    const pageNos = Math.ceil(chapterURLs.length / config.PAGE_SIZE);
     /* eslint-disable no-await-in-loop */
     for (let idx = 0; idx < pageNos; idx += 1) {
-      const { videoUrls } = await this.getChapterURLsForCourse(courseName, {
+      const {
+        videoUrls,
+      } = await this.getChapterURLsForCourse(courseName, {
         coursesMetaConfig,
         pageNo: idx,
         pageSize: config.PAGE_SIZE,
@@ -129,6 +141,8 @@ class Scrape extends EventEmitter {
       videoUrlsAll.push(...videoUrls);
     }
 
+    coursesMetaConfig[courseName].chapterVideoURLs = videoUrlsAll;
+    await jsonWriter(path.join(__dirname, './config/courses.json'), coursesMetaConfig);
     signale.success(`Video URLs prepared for Course Name "${courseName}": ${videoUrlsAll.join('\n')}`);
   }
 
@@ -140,12 +154,20 @@ class Scrape extends EventEmitter {
     await this.page.waitForSelector('.course-chapter__items .toc-item');
     const hrefs = await this.page.$$eval('.course-chapter__items .toc-item', elems => elems.map(elem => elem.href));
     // console.log(hrefs);
-    coursesMetaConfig[courseName].chapters = hrefs;
+    coursesMetaConfig[courseName].chapterURLs = hrefs;
     // const { videoUrls } = await chapterUrlsScrape(coursesMetaConfig, courseName, 0, 10);
   }
 }
 
-new Scrape().boot();
+new Scrape().boot({
+  headless: true,
+  userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
+  executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
+}, {
+  width: 1500,
+  height: 1024,
+  setBypassCSP: true,
+});
 
 // eslint-disable-next-line no-underscore-dangle
 // await page._client.send('Page.setDownloadBehavior', {

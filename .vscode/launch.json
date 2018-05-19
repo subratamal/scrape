@@ -7,9 +7,12 @@
         {
           "type": "node",
           "request": "launch",
-          "name": "nodemon",
+          "name": "Nodemon Local Debugger",
           "runtimeExecutable": "nodemon",
           "program": "${workspaceFolder}/src/index.js",
+          "runtimeArgs": [
+            "--ignore", "${workspaceFolder}/src/config/*"
+          ],
           "restart": true,
           "console": "integratedTerminal",
           "internalConsoleOptions": "neverOpen"
