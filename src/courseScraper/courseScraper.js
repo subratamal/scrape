@@ -11,10 +11,10 @@ import {
 const config = require('./../../config/config.dev.json');
 
 const coursesMetaConfig = jsonReaderSync(path.resolve('config/courses.json'));
-
 class CourseScraper extends EventEmitter {
-  constructor(browser = {}, page = {}) {
+  constructor(courseName, browser = {}, page = {}) {
     super();
+    this.courseName = courseName;
     this.browser = browser;
     this.page = page;
   }
@@ -79,8 +79,8 @@ class CourseScraper extends EventEmitter {
       waitUntil: 'networkidle2',
     });
 
-    await this.getCourseChapterMeta('learning-react-native-2');
-    await this.getAllChapterURLsForCourse('learning-react-native-2');
+    await this.getCourseChapterMeta(this.courseName);
+    await this.getAllChapterURLsForCourse(this.courseName);
     await this.browser.close();
   }
 
