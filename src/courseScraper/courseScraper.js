@@ -118,7 +118,7 @@ class CourseScraper extends EventEmitter {
   }
 
   async getAllChapterURLsForCourse(courseName) {
-    const pageSize = config.PAGE_SIZE;
+    const pageSize = config.courseScrapeMeta.page.PAGE_SIZE;
     const chapterPagesCached = range(pageSize).map(() => this.browser.newPage());
 
     const videoUrlsAll = [];
