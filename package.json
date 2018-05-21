@@ -1,20 +1,27 @@
 {
 	"name": "lynda-scrape",
 	"version": "1.0.0",
-	"main": "src/index.js",
+	"main": "lib/index.js",
 	"author": "Subrat (06.subrata@gmail.com)",
 	"license": "MIT",
+	"engines": {
+		"node": ">=7.6.0"
+  },
+  "scripts": {
+    "clean": "rm -rf lib/*",
+    "compile": "npx babel src --out-dir lib --copy-files --source-maps",
+    "build": "npm run clean && npm run compile"
+  },
 	"dependencies": {
 		"puppeteer": "^1.4.0",
 		"shelljs": "^0.8.2",
 		"signale": "^1.0.1"
 	},
-	"engines": {
-		"node": ">=7.6.0"
-	},
 	"devDependencies": {
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
 		"eslint": "^4.19.1",
 		"eslint-config-airbnb-base": "^12.1.0",
 		"eslint-plugin-import": "^2.11.0"
-	}
+  }
 }
