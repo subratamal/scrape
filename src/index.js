@@ -5,7 +5,7 @@ import CourseDownloader from './courseDownloader';
 const courseName = 'node-js-essential-training';
 (async () => {
   new CourseScraper(courseName).boot({
-    headless: true,
+    headless: false,
     userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
     executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
   }, {
