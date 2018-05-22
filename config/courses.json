@@ -1,0 +1,502 @@
+{
+	"node-js-essential-training": {
+		"root": "https://www.linkedin.com/learning/node-js-essential-training",
+		"chaptersMeta": [
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/welcome?autoplay=true",
+				"title": "Welcome",
+				"duration": "1m 32s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_00_01_WL30_Welcome.mp4?EC53StCjFhDxzg4PwIXqTNCaRn2PfdCEnXs8wNU6puVZOe3m3BPLLiltXxynaxxfzSwpqnO4W-0TqKhEo1pRFIgXLaqSA9GkF7FTwt8OG-wM7yd4ziqppWoplP9Hte-1PvSHEq_e5rMcJVDR-Gf2K7OOybN9kCNf38MhRXRuRles287vZZE"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/what-you-should-know?autoplay=true",
+				"title": "What you should know",
+				"duration": "1m 15s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_00_02_XR30_whatknow.mp4?fFDXL_wjnNnLz4fPFUYYJ6Ngd0UjfgXI5DoU0e5-J7h8VnR9hFlLd_tyvebDQCd3AcUjlUCFlaHhwQT2gbfhGCZ3fkYaMGyAz1-nJeR-p8E_PucwMbfdcEl9AGLgJG1EgGry7TorKfagGT5dxYZCJoruMwzX8qmF2_OqMq7X9-cA-LaQxI-E"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/using-the-exercise-files?autoplay=true",
+				"title": "Using the exercise files",
+				"duration": "56s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_00_03_XR15_exercise.mp4?kD8bvxY1Tj8wUwu8IrRhsz6Fh7bSdDGotdVJKE6-CDM2mZ5OS949xfIBTlzM5Y5bXXP9QBxg1OugI7MKpOO23UsVxBkzxDBAtK7gexvnGE9FL-WFAyYih3ItMNEYmqiXEo0Rc_94ED7BI8HIyUexBKRsXBKbtnyT0G3QExqLHittkAd48J_Q"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/installing-dependencies?autoplay=true",
+				"title": "Installing dependencies",
+				"duration": "49s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_00_04_XR15_How_to_install_dependencies.mp4?qSMIQALv36wdPaOnZHjxEfsv1PGiTzRcgAyBiYR27wzyjCnfRInYqvi7rpRdt48CECj1Kbau2vbVl4HZjeUkdvGWfhgFchXY5SBlqVwjjJT95DLSp8xncbFPwfssWBUsVguPXkNDgsugqos9CcJVUog25OoDD-mqjj1EcufNW1NOf7QL2bnkTOLM4ha5ZVPInz5TkcLehCUQ7Q"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/node-js-history?autoplay=true",
+				"title": "js history",
+				"duration": "1m 45s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_01_01_XR30_history.mp4?AoM71tFyJY3NbIYKth_Nmg46VhE5idlWjPhTCnnhiyR0eAVLVzlz0TWC7EdbjiAw4JegaGFAY-k65k_kTgVtUNSKB6sKCXi5PTstNVeumtuWXYdxS7z6zTMYapo6jnH1BhAxmEasTy6Hb5yJc9EIqDfPkAx4TeU6J2gHieVpwmAZHIjBOZk"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/how-node-js-works?autoplay=true",
+				"title": "How Node.js works (Viewed)",
+				"duration": "3m 32s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_01_02_MM30_nodeworks.mp4?TSREbjkxXoPlebnBCO6MhNsDetEZZpNfZ4nFfimkNCTPz5r2dnbBOJE3fysI_dkGwAcdQw7b7T7Z7tvjgSheQSQ43cMbT4Iy23xEkul-eq6Y_Pli6WV6rjaG14z4ujHzZHq06wJ8coId8KZ-dnPYHbGE7cAdV9mQ_rbDazY5U0H1hzYI-f265Q"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d50075606",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "1 question",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/installing-node-js-on-a-mac?autoplay=true",
+				"title": "js on a Mac",
+				"duration": "1m 23s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_02_01_XR15_installmac.mp4?eShnHLrgAzI-PHuJO7I49gQXTOqXvp9jcH2k3iw7CGEdGnvmUPMFfwzG_ZDe7nMU2MRDhVunUYgGqwXg2_UAlRTajYbnISB7Aiad97uLjz9zx-Zds_1hwJespr7Y3QO0Us5Pr3cHoQSd_dfehF5cEYOJnsRs9wIBN6_i3j11zcbqEA2ncsX-dGQ"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/installing-node-js-on-a-pc?autoplay=true",
+				"title": "js on a PC",
+				"duration": "1m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_02_02_XR15_install_nod_pc_Final.mp4?-CNjl6wLI1N2xFdgOZjgzjrBBfjsA9euD2_OkP8ngSoEDbgkO-lu1iODLlEztG7ffxbvccAVEa2Btwe7pajLNUWcA0Rbd8hX8wLRuNAGsl9yhMkvKgS06I9yOGQOpuTjsjt1G7kyGXZAX8Xa_hL4rr5zmg4pKRbOt9J5o0jjsSXPWL_t9yHtxS2EWI2AJUtf1K3v"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/upgrading-node?autoplay=true",
+				"title": "Upgrading Node (Viewed)",
+				"duration": "2m 20s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_02_03a_XR15_Upgrading_node_2017Q3.mp4?ZeiMzJZhgXvyudEGuutwf5GA8LanG9SLvnDAk4Ib-9UcEPt6oQvO9SIkL2fVzxFXfdXRdUyKhquL4k75cKgjqa-h6-JO-u_TfbPCFp5zrccHazJcw3IsadBTEWT4KbOZl81zbxO6DhxCkpdrifh6p0mB47qA1ezVnHDsh7t6xjb_pIXO2gd_QHehjQvdAApVIVZLmxs"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d50075607",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "1 question",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/the-global-object?autoplay=true",
+				"title": "The global object",
+				"duration": "7m 18s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_03_01_XR15_nodeglobal.mp4?gAaNp76tX3BQ7F085qxSDCKfzO0eWJMyGz1lKPYONuGwX_QR49-6Aswp8a6JkmmjlhkGR0iiR_239KqRmqeCu1uYurReodHjtPZ17CW2pwS87i_naXKBs7EKclLK4veGpZutlHRN7g9-jC83hWfagrFXg67awFacMPBeLvqFNP8MS5_Sv8FlXyM"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/argument-variables-with-process-argv?autoplay=true",
+				"title": "argv",
+				"duration": "5m 51s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_03_02_XR15_process_argv.mp4?pj3-Q1kGdicLqcsg3KBHDq7_r7hrra83uuqy-QduxQezLh4wjq_kTaYLe17YYlq5ULrtcoN4J7OsHXi3zSG09X4t2CjnHYqmFWpehE90o2ftYagQSUSLK5DsSsC5xCsBpmxT_U3GwzHL5E9UEKfl80YZUrIFj869fkFMMGruEK4dX5-Yl6SdAQahxg"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/standard-input-and-standard-output?autoplay=true",
+				"title": "Standard input and standard output",
+				"duration": "11m 28s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_03_03_XR15_process_stdin_stdout.mp4?_GhSVP0RHlgxoayPABY9ONDE5d_5vIyez0vPtsGDaSdT3p_r4n3Mryl-yLGX7AxRCUKbH-vf45QOLN4321NfqbZAvO3eY5uy8sGjW19ZhxZpZMl4clcn4z0L2JG0jB2YF4MXnP4DUIS2zNK1VjbpYBSq1gjWMkCGPzmCSi2VTn11zgXD577LrDSwYoVUBPN7_VmX"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/global-timing-functions?autoplay=true",
+				"title": "Global timing functions",
+				"duration": "10m 27s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_03_04_XR15_timing_functions.mp4?0OR5se648WAMYvtM-vSvd3W7a3fRkGss3lQDtpIbXMsLDBg6nzVZ3ECgew-yZHBTa6tuJ4igLa0YBeUgKvhfxp9I8xnowD-FcqftPd1zGukGP5sVgMjpDlW8QzHMp8JimiG-kWMLYbVwzrBmU-tJAn5yYiBchVKvp33tOsrBsgD4TEH01mAUmS8tj8N_2bk"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d50075608",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "3 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/core-modules?autoplay=true",
+				"title": "Core modules",
+				"duration": "4m 42s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_04_01_XR15_require_core_modules.mp4?M83IsQjYghRLJ58AMmAzFaGCT_X0BZP0Jq34p1tuMkkN8_MxdtxFr-ugVxLxyTVERA78IvT3pahQ0R9LU5lMsEpX6wpQkzR18o1j4Zh5Tm7xj1oFM2Y918U0zBWvAJErUMj6EDP8yndpVAC8IREZAONE6_DQgt_V_YqudHlKhWLhPmro0jdoDN8_geOQrIZJYUHm"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/collecting-information-with-readline?autoplay=true",
+				"title": "Collecting information with Readline",
+				"duration": "11m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_04_02_XR15_using_readline.mp4?gnnd-nZlNEAjgI0RzUDlNniDqiKRb7CmcfYAij6JaaboSHe9l3B05Yay22iUDVS0iTXx2atwrKUqi8ssAE-akjhgwu_Plngb1ltbc3vr13rRFu54CzI4LguZuCg5zg7CQBSPU0PxGn-wqYmAFI9m82qczdFp2AvdZzJyG8TrMaAIpnLT6AIBle3cyYfa"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/handling-events-with-eventemitter?autoplay=true",
+				"title": "Handling events with EventEmitter",
+				"duration": "7m 40s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_04_03_XR15_EventEmitter.mp4?EYn6dVU40-ivJ6Oby8F3KmqGpWpw72cqYd0HKrJMRYDIpMpgE_lld3bw1nisLisRudlnzMkJE4Cwr73hZYKCW-JEQ5UlJ9JdKv4LetQpT64aFqXn2vsplkhCOJ4sOMrZBLdrVWryheWu1BYlSlN3TWURB4WKHaqziEguAE1DJHxM5QoUlAavZHfslg"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/exporting-custom-modules?autoplay=true",
+				"title": "Exporting custom modules",
+				"duration": "4m 41s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_04_04_XR15_CustomModules.mp4?jehaMZu5wCtVP7Pw7NN9sH6CQ4OfPkbqzhUiqRyGSj0iKXA0e1wKXqrNhRQEKCZTQeP8I5AFqs1AJxEcZgfM029fA4BX0o0o0tLBFDP3qqlCmsi8WmtXCyQhEOprqAwHfeGizoFhPWIgWsh6_3wFzFnA8m9AB30_DATUYYh8fFBZQqx4OCG-PlzxX7E"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/creating-child-process-with-exec?autoplay=true",
+				"title": "Creating child process with exec",
+				"duration": "5m 45s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_04_05_XR15_exec.mp4?eoNvlnnlW52uIlfl3r6B1wHoFAcdp191xJt_cB3hLOr86tj4Ja1CmxoojTSUGkiM4wJgjycCzpGNV8xqtfhRmH5IG0jXT8JqqE1TMXmSNcNxz2aVjv6hzxX2_s9IdGytyRy-8NC70G3AE_0adsDRkZO84N3SLDg88BToycoZsg6z9JM"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/creating-child-process-with-spawn?autoplay=true",
+				"title": "Creating child process with spawn",
+				"duration": "6m 35s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_04_06_XR15_spawn.mp4?Bvv5TKnyimDZmgsdZOxc2mPkebGkSsYeMyIwl_qdJ9l_tBSbGMixDsnx5hnxfKaJqqwXbme-MqWATcM-G3f_92GTBQS35lb2EfdAIEP32UioVlBYS6TE4K_2A_9lRBql3M_xgaBzB0myj-a3vr8fYHLUoaIww6aS9l-Q7WULFIdVBRwp"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d50075609",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "5 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/listing-directory-files?autoplay=true",
+				"title": "Listing directory files",
+				"duration": "5m 13s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_01_XR15_fs_listing.mp4?VpqS3uJmG1sQ4qlNG6B37xkwMl9S7oJ4iY7cHSmYxlaNHJXyP04VqdvjkRBKFOCymqOr-Kh7Q795RkJvQxTqexMrLCdeH587stA4Af1BgD93BK1O4zwCCZQFqAeaswDkYJltgf8U4XMrWWrvjJ9NzDTz7OVpNrh0tFn0gwGz8F_QnNoJSceeozs"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/reading-files?autoplay=true",
+				"title": "Reading files",
+				"duration": "7m 12s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_02_XR15_fs_readFile.mp4?TLZCTrh6WW8Jb-6FHer3O6mCR00tbTFJloWZSn3afLFzUWcY4DthiO50iqtMVycDQSm2UIL02T5JZvTJxVeYRZpvVWP_OJQdKGKhY7nAbHvxjO-7cCqNOIc_h77yMkyLHr6VV99JXc8ojiNGG9ZKm4rSerT7MUZkYSLsLQfSugwAYBIly2Hu8-tj"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/writing-and-appending-files?autoplay=true",
+				"title": "Writing and appending files",
+				"duration": "7m 48s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_03_XR15_fs_write_append_file.mp4?pIM2bv7sHVRP1xDRYJan53Cb_rZK-JTRv8AMKgO0W9jBRNl5JkU3URN_RVNK5gJ6qvvfrYwdizKK6amzzZYlj9G7_ObOHA4UEDT-C4titzrsZiCrds1E8HVTFSPVoGqHJoafBbHAKN3NenY9_fg5mShRxZ0IHE8KlXFFs92VUddXgQ3-jaxR2hbwnxIIMXwx8OOV"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/directory-creation?autoplay=true",
+				"title": "Directory creation",
+				"duration": "3m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_04_XR15_fs_write_append_file.mp4?TzW-T0Qy2yXu72tTUGMdIS0Xyrk7TbkXHwnW35D3kx5DobKDfo_IM9PYRYmPFSSiNTk4k5lAfOkYqb9IMMpku2W2QpnFXjCFRlNjDbPf0Cu0qdwWLdPdmQ8ibJoZdzBpUoSfzK63VhyW_CFLnx9Zi8zqh4UQyto0lCDhyaI3wCj2RtKrAofTUtfdV_PX0d_rWhGU"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/renaming-and-removing-files?autoplay=true",
+				"title": "Renaming and removing files",
+				"duration": "6m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_05_XR15_fs_move_rename_remove_files.mp4?RxMLxAaeh2ybo57ArvOjfT9qfxntoD1bpEhKdsvXdonCTqyW9cVSHjxdu9pjWeAExJOdrg3t69t5nPzszjcpKHduiujzvlWXRDuGfJPxX10gj6oehblcp40SBFM-wXeZS9bBSsL8-kg95Jdka0IbkSPyy6Qdd-afUEc700QRgztacMD24AR3FOBmU_lae_8F8cx4L3PO9oabIw"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/renaming-and-removing-directories?autoplay=true",
+				"title": "Renaming and removing directories (Viewed)",
+				"duration": "5m 55s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_06_XR15_fs_move_rename_remove_directories.mp4?rpm-AtmItHl6boTU8p4GJScwPhEEYXxJ0mYEnyk9Aq2XqU6L_OjqrARS0hj-OHwUojzGY_Np_lCN6eg5V3fXd3_HhRBEUiLVt_Om6JDZoRYhPC7BsD1Hvj_G1NDcJM10ViB4xg_iWzo89Lr8ChvbMs-1M0u0VYdZgRhQU2pA5GDADvsgygQZN63YxiWcTxv9Wx_xCj2z4K9kTWjbU-dkKw"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/readable-file-streams?autoplay=true",
+				"title": "Readable file streams",
+				"duration": "8m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_07_XR15_readable_streams.mp4?Dp7wy6LNDywWRRVD6sXYFkUs40rO40nW6Bv0AH04oB58MsKlDApGyP2jWTQGnT6uZfgrlJKznUHPkn12h41WVeQTlz280grhcJRGXW6wANy9_NfKrik5LzRCknvpuwY0NrvuapDYL1jpw54lZWFext7uFHFKL42kVyQtJyda-PPzIFqfGhpCbhvgnZQfKgs"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/writable-file-streams?autoplay=true",
+				"title": "Writable file streams",
+				"duration": "5m 24s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_05_08_XR15_writable_streams.mp4?8fevbZhXkPbX3ymm-qMkvlK_NyaXvNQvGiZDrm05cAqZ-uTCDv2sId8y8grX7tHDJNOvKNPh_o5MkUv-rSxrvxZj99lZ0WwHElGLkrJD5a04eNG4P2mYUSZFrVClSt8JiOZoj1HEcaUngQpY9xKvWFHiJTgUNOj6M1kVePH_meniwQPVLbW7OhYawHtQXTI"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d5007560a",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "6 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/making-a-request?autoplay=true",
+				"title": "Making a request",
+				"duration": "10m 45s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_06_01_XR15_http_requests.mp4?rsOsvN5p31IjJjTQo4hsEWm8OY7x4p9cJdNdO4J6csc-tvrwV4fT1-pY6-LcDWnHtWfRLMf78O7QtIa6xwZcqlnGp-xRFWm8tdRbOzoSqlqfYNvAmodtU8kGH_IzJypFGDDqgWUctKqieHfRmz6M3H9dtJZ70H_DiT9z5KyRBMAXFdK-f49EI7Oqxi8"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/building-a-web-server?autoplay=true",
+				"title": "Building a web server",
+				"duration": "7m 5s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_06_02_XR15_http_servers.mp4?6DPsO7NZEwLK-rQtlgpy1lg3NXRrbffR6kdKEwQ15RPSQaarI53N9I7IUBJNXtbcp9uBi2gIwdTowp1Gt0fLAnjEP18y6Epib7X3bSBwdOIXEifhowhlLSoZe3EVPnhLnr_RuvaeypVUfeLuCfi_Zzc5EivSC_HmZCs3i1OOY6fP_W0X_l5f9TeMTA"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/serving-files?autoplay=true",
+				"title": "Serving files",
+				"duration": "12m 25s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_06_03_XR15_file_server.mp4?ytGrMY2l9imcedQAPnsdtjngmj4OrW3p5PQr9fwlSraQlWc-H67j0XN92E2qJKG595x3uE14TPN_wKR43bcIzlLb8UnOgA5wb6Ia6h-__2dSOeuOjwIF8FhpAk6GHFkQHMHODRrzcmkUjqBl2_XCCIVrGWP1FZN8KpmxcaMfX6ceaI6giz80OmZj"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/serving-json-data?autoplay=true",
+				"title": "Serving JSON data",
+				"duration": "9m 31s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_06_04_XR15_api_server.mp4?sBJ_w_EQoskiGbVx8iWGIqvqvJDwGMrEXJOUeWhu5Yd_8yR9KiZYB8YCY8fQzrTo59FD_E8bXRJgZfJ3IR_SEeZ_vrMQACuJaRFmoYsglgWQjDzOcmU-Kz14h_YPgJURiP8QVsoUvnHbIZT5vU7FnFpOR5OTF4m7b7ZlqTEtECzyKmMw-rdNMg8"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/collecting-post-data?autoplay=true",
+				"title": "Collecting POST data",
+				"duration": "7m 51s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_06_05_XR15_form_server.mp4?XgyM1amfRhuEB_l5K-hbwn7bmf2uKUxVpzPejEVXNjWZZZdOjMimOQe-CfBcN99eew09TfElE6-RpqguZn9PFAgHmXzxvtdKH2ZMJGWjRbgXPkWfA_5U7exxGgah9euBloAGsp21tjDaRmT_bxz29DIgXCHvW7yF4x1CYotg5QCv0_iARiQhRTVG"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d5007560b",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "3 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/installing-npms-locally?autoplay=true",
+				"title": "Installing npms locally",
+				"duration": "4m 4s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_07_01_XR15_local_install_mac.mp4?2qFAe7AcMv8bQy-fDpCXPpxQ0OaQlwL4T-zLMLFx-aRX7gz_z-eyNFEgA6VhJeyhSB43l8WeQfNAr1_K4nivi_XxLPX0BaxOmbG_LzWdPGsSC9IPWPm9OvuvYwLEY147Jtcgtrh_CFRpKDycCNXak3_2jWKcyzbat5i2z_r_s4I84ADqA3ScLG3jZQw1wc8a"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/installing-npms-globally-on-a-mac?autoplay=true",
+				"title": "Installing npms globally on a Mac",
+				"duration": "6m 41s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_07_02_XR15_global_install_mac.mp4?-Y6PAFGXSf7SKYfO8vztz1SAWJZISDt-7ds4Azj9RceyrPMY5sWpZWfzZ6z0JOT0MVAXQ4NnkdH4ZvJ3o7es-R4RE-KyfFStR4M_kuE-iZsbJKGKJesFbPbBuvELBRWe1bnQTOEGM29SCUoUJ_Syfn-7CqzeDNvFHiE3Zzrj0NRO5XExDBpUJK28fjqb13toBw"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/installing-npms-globally-on-a-pc?autoplay=true",
+				"title": "Installing npms globally on a PC",
+				"duration": "5m 23s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_07_03_XR15_global_install_pc.mp4?kZeuQKg2M5vQOzsxZz6ZgPjkWGTFrj_l8S5HITzxWL4qBVGUCGsmNAW8AIZCh65KMPcQbmGODOLbWfk6-BtHvXYpZsck06xa87Wg7Ub5ddU2f3DDxYikAzquzJM-hvdrVCAvIkRXUbSVJkfNWPsjVinkwFydRyEdA5P99CoR4EFBEHPXZv_gGYKk5QAcEsyt"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/file-servers-with-httpster?autoplay=true",
+				"title": "File servers with httpster",
+				"duration": "5m 3s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_07_04_XR15_httpster.mp4?YYYgxFJLmAjqhvzA-LbFCJFhsXRpq-1TGDu4xRszvpB8B9EJ6A4ySXOZs6vzDCrDKcHSHBs1AXN_q2sBcVDLq6LLFsA5eb5NhspV0qUytlIl8yhUusxebyLZGYf_lmphvaW1WlzCbyQNyzzhumj69skuQljllDu8AeFcn4dCc7RDwJg3msYn"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d5007560c",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "2 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/the-package-json-file?autoplay=true",
+				"title": "json file",
+				"duration": "9m 35s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_08_01_XR15_pakcage_json.mp4?iZnO1G4rKjRnWzSv_KZlOJmKQ8BVh0rCTor8bF3WJ_YfDpPdFQ00prVAlE4qTZLA5FnbPh9ezcXoGN1_ymej5m0iHVnNAGKD85FCBuJYH60sWYRgfIfs3FL3v4KDlAIEt0AkhFWcIqp7WQrfau5gkxj4RX9MhY_T4APJAlriuIQkjJ5YMkjBLQqdLw"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/intro-to-express?autoplay=true",
+				"title": "Intro to Express",
+				"duration": "8m 21s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_08_02_XR15_express_static.mp4?iW_GXe61KkJfQn3v1rnqXcUQg0jXokdhke7VrpZ7Jn0B9iElxmDoGdK_Qtk29wHtyvjsej6CKbrYP--NzNghajrbsE-23zmZs-lbnmQFyzKqBXsqxyzKXI__CfrbMMLwpowHgOu10wpMpDnxbZG0W5N-fG10VSarVff2Ox9BPiC0oo7WfFlQjpMui5tH"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/express-routing-and-cors?autoplay=true",
+				"title": "Express routing and CORS",
+				"duration": "7m 29s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_08_03_XR15_api_cors.mp4?vPxPojlfcVVQuW1GgLZ4ccWXl0eDsmcQiuyXQpvjXBMaZTYurEA6Ke4E6riAUs8LM42iyF1METfYA9d4r24a5GUB9jbR7yo2fCCWmNdLVOqj2jB4sQ0AWs0hwox3KmGNZ5UNQqyawlWY7E-Cxz7eoyAPUKWPlmBs7ekqLpc4FZxwWyP-5R3J"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/express-post-bodies-and-params?autoplay=true",
+				"title": "Express post bodies and params",
+				"duration": "10m 46s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_08_04_XR15_delete_post.mp4?uFpqtgu9PE99XIWEraxvf0reOhgUyivJE2Ws74Q0a1kxyM638lPG8rdfUWN4v3wA_ZJ66JaARCxvlxaIUvuLLDfhmf8s_H66wLI_-eDt2200IMwZEFTTDwzhRBaLvWo1woV5ZY5HGxrJjYBiROVNkYXhivJUJjivfFAJVRLcHnIElFuSdKyz_NQt"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d5007560d",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "3 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/creating-a-websocket-server?autoplay=true",
+				"title": "Creating a WebSocket server",
+				"duration": "8m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_09_01_XR30_websocket_server.mp4?Sm65Yz9r22q4TVrIKRkahnVG7w23YvpAGSCgxjOUGipDbfuXAIa5Y38B1llWFBnkHRTPb3s92bcIA1izSzg6kzgsOrC9zxm2y1_WIwQ8Ha6Ozpvfk73ABrBBtHZ0bG4LhVsQ6yTJQgHz3nIQAgfeqWVVNc5xBtsLY4MOTKCUpIOpqMy8vUHBOzcHKku0bKU"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/broadcasting-messages-with-websockets?autoplay=true",
+				"title": "Broadcasting messages with WebSockets",
+				"duration": "3m 56s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_09_02_XR15_websocket_broadcast.mp4?iIVaTWQOXlY0fZbpyAvPVIdxQ9jfNjWYnEjA9TYvpgNMZdy2DOwFbgcPi1_SII-AlZy89-TGb6oZllNPKvKgFRrspgaqSseiFUrcP1XZ8TDRLBwxCDKgP1IGHjRUfKqfpcNBUgAH9-lIXMvNeyFExm8qWTSWu48ABaNVna_A3N_74AJU4udHgqHs5ZNYfw6PZVk"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/creating-websockets-with-socket-io?autoplay=true",
+				"title": "IO",
+				"duration": "10m 51s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_09_03_XR15_socket_io.mp4?96rXr7ThPS49h1jpMXQ3UNPaYlXhuEDFXUatX1Oj_5cQN7zCzOHudAsVwqNcZLL4GAmWlJcXumf-aMOiCdwx287cGAdi1ox3Rigv-p3T_LCIXpKlqsWHfKE8yo1TwMDQukoniSAg7Qxl2s6-h20ufPymk5x2OOigBFN69-kdDkaLjFJsQ9RujQ"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d5007560e",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "3 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/testing-with-mocha-and-chai?autoplay=true",
+				"title": "Testing with mocha and Chai",
+				"duration": "8m 46s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_01_XR15_mocha_test.mp4?9xpfngNjF7MeuNSoQ-Wit6ZjTfJn-3J5RS_pKrkoaJLxrVu8Yiq87q-z439f9vJLQE4UvhpFAZVYHt59w3SWsa2F2gl1H-covbtzd9hceHHzOCjAs3vkwbLlnPfRfxcmL2Rw6p8Owq3NY1xEWM2xim3v2bpqzf_qfCmeNo--hD30lAMBHaTrJkE"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/asynchronous-mocha-testing?autoplay=true",
+				"title": "Asynchronous mocha testing",
+				"duration": "9m 27s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_02_XR15_mocha_async.mp4?OwDjvl1qeqCF2F5-3pK2KjS6bko99lG3DqJ64WV3SvECkxWgxUmD_WOXvegppc8mZ1hF7IQb7dSdoaKBJItObxeVs8jJfkQSenCBcUSAeX6bN9HufV1bs-qNLnwz3Kk-xNYuvuwqZZ4x5H_xZLH96OKhmNBQ2LH-Qvle7-v6VgOgrrSLbTnT9XFb"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/mocking-a-server-with-nock?autoplay=true",
+				"title": "Mocking a server with Nock",
+				"duration": "5m 43s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_03_XR15_server_mock_nock.mp4?0yjf36VGQyelWxwccDMrQp6q20lHFzYRr5etcvA84UieEf2XUKkzlFwBQxEALQY6RyqdKGQU4ueXZjUrpNkkNA0uHjq0pa9-KXTqNdIMrj1NNDGcsDTQ9ksF7WiWhTvgPAsRXi-XWMBVgDjWIVD1zWZ9TA6PJGfZMx09AJdfuKTn2GIsUzqOYsz5oKbRuN0"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/injecting-dependencies-with-rewire?autoplay=true",
+				"title": "Injecting dependencies with rewire",
+				"duration": "8m 1s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_04_XR30_inject_rewire.mp4?8BcZxlf1a6TKi8GoKDnqoXb4EnWTToiCtw7gSknBx77erDNYNsLO-5nYDBzzUJT5GQYq3yCL7wl4w_lnpuOjiagvouaW45NcnVzeGswq2jXmAY8n8xvbD1obezXS7Ghs2RhFwYI1y4ZP_9Xo7Nbnl3YTAyAN4A_sg9mpkQy-vskPtKQNH-HIEDNIyeY"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/advanced-testing-sinon-spies?autoplay=true",
+				"title": "Advanced testing Sinon spies",
+				"duration": "5m 57s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_05_XR15_sinon_spies.mp4?-h7QTn3K5HWrowbxlQRVm0yh-QPnad3VtYzK4oBdnMDx8fdLUrV3Qf6QVlWo19FYdmNh8tBQCb6miAy04wA1IdXBMsPDI6cU2LtPM0mHuLQf0XZhFrcoQomgxohmPGtcEVZDR8ZySaPM7ARO9kfzM0kmSlN7EuGduYjKwe_ZZwjbJSVojh8ExRHa"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/advanced-testing-sinon-stubs?autoplay=true",
+				"title": "Advanced testing Sinon stubs",
+				"duration": "9m 30s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_06_XR15_sinon_stubs.mp4?J74Uqbz9mCny_CJRrFD15qcseg27o-oO5aj9gRlZVVDfr4kP1NSTXXy-GziJKk8bji6p0vJtFK-t8lsCl1ODxmBMP3eNpPZ6x9ZfzDs5Jd5-XWzvT2mHyv_c7Gfo4-A3-uquL_2j5OSQ4kyIdhtB6tsLny64om6b1v_--mr3qRn9t2xjwE8-vUj0"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/code-coverage-with-istanbul?autoplay=true",
+				"title": "Code coverage with Istanbul",
+				"duration": "4m 56s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_07_XR15_istanbul_coverage.mp4?F8p_97G8EaZ_orEO-4jT5s4gJVokOYii2t_CEob7XUITBhAe_Nt2UcGgA-tMk4NmS-fUEeO4C3UmNww9OWFZTElkyctSusro774VnE3jvswUVW5zRwroDJXn480d6eBCevRKw6RO4PNi8y6lSEIb6Ul-P6jMG8gtPKOa-wUWtv2v3RsubHJ1MfShjXP0Buis"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/testing-http-endpoints-with-supertest?autoplay=true",
+				"title": "Testing HTTP endpoints with Supertest",
+				"duration": "8m 4s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_08_XR15_supertest.mp4?qCzgxzOtvPsdnvPrT2OypX1eZwGZyUQjlVxCL564HDFHvDDhrQJzeHMFT36QWAYVT43gUsVOtfH4WwDX4xdnP1oWsE9_MpcfQzYOShIulhikRY7jaT3O0NxxxBCp1PV3urLny8VYCWtYd01YICMqf8yKBwSO1SbREfF-9Tmj3R2GEGT1sPrv4g"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/checking-server-responses-with-cheerio?autoplay=true",
+				"title": "Checking server responses with Cheerio",
+				"duration": "7m 41s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_10_09_XR15_cheerio.mp4?MhbQOtBIVd2yuao_78GvEr3aYk5pyyJIYbfSGC1p8ZiYknClBZXlQAIe--rcCFTj6VKxVhoB01YzYGF3o_Fb5T_rOxEudE7KRIXvmE_vqklaZ-NeTSRgPFSEL35EvLzuM_wfJbKf-8XRH_2zPTALC2NeVme8z99g0dcGiy9A2Ezl9gKd4Hs"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d5007560f",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "4 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/hinting-your-code-with-grunt?autoplay=true",
+				"title": "Hinting your code with Grunt",
+				"duration": "5m 8s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_11_01_XR15_grunt_jshint.mp4?uyduwOWwfnF5VT0AQmwERKG_D7zgigQVZmo0NGXI4SJlPIaki2r3jLBp_Q3TBv4VK5x54_qb2ZRmvkNTyHvxjjm8OuIemCDKW1DG7-pale6LMrnp4ioJf0DymKsSAf9pMTfszeGlHcJjw87wdCTyF-DfuKy1FBs5zvjWfP9RHZsMb4ydvr47HxUkJg"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/converting-less-to-css-with-grunt?autoplay=true",
+				"title": "Converting LESS to CSS with Grunt",
+				"duration": "8m 1s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_11_02_XR15_less_to_css.mp4?q74SezjCAIaQB8lq0CesQnRj-UegujoZneQ36AwDMFmLOVNDosgWKQIDEDMidWDmS2DNUh-dnbMGRp6_GvpTIohZyyZD1XV7u_IWSliL0fE4PSKYmT5pgFkpY9tK0OR4mfvEdp1mPUDD3tZIhZF2HX0FcpIVuwzULpAUcjKISqp-XN3rAYaRLko-"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/bundling-client-scripts-with-browserify?autoplay=true",
+				"title": "Bundling client scripts with Browserify",
+				"duration": "7m 59s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_11_03_XR15_browserify.mp4?436e4FKlt5H6qKyGEkMQnP7Q6voDAp5WwuJhtC1CWxv0L7-dndRnnK-iS8yuILTYiV8Bzeuzl0xKfQOOgeMyVG2wXVDU60ZPVZZc5wRMh4hTGrLf9o_HWJs_cowpKNNuAQgPNCpkyOflLvQFauZ9OO491fB_hMi1BeTwo8dbt4zqw9qm1OxtsVI"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/rapid-development-with-grunt-watches?autoplay=true",
+				"title": "Rapid development with Grunt Watches",
+				"duration": "7m 57s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_11_04_XR15_grunt_watch.mp4?rCOe28I_EKsbuOtnVETSyl37Q29lgdRNM-MjxuTzV9DS5BxBieg_pTDvEqZz_bedE65FiMjkjKhiTaZs1kQOjoiJnBV06SN15rcZuXDqCz9mOZ676LMvLp7ryzoHnGS7zEhvlqMDsXwji8aPu-keoGIe5gRvQwZg1mR_tfIM0Cg3duz_QctfPFZg"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/automation-with-npm?autoplay=true",
+				"title": "Automation with npm",
+				"duration": "5m 7s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_11_05_XR15_npm_scripts.mp4?_d1vWJs2RHnQNfl0LBv_LLRVyWZfzyd-XRLzD12atO7tT60WHPcz9Cu-RkoneChBZFrLfAnqsAXNuqiBxihozVoGPPwRGoLYPD190v92XRkrUTAy8F0bQqjjigMCztDjTiTDbiE1a-RmEkeZm42qqVPRpt6sbcDPzKnl1GYBkK35NdeNHyPFBZFx"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/debugging-with-npm-2?autoplay=true",
+				"title": "Debugging with NPM",
+				"duration": "9m 6s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_11_06a_XR15_Debugging_with_node_2017Q3.mp4?VwvqGGUdQqtoesnnO0zUAWIs6Oxoh4SJp4s9JGxqXz9JRArwXZWyFoDpR84i6jieUwsJC00bcINpQ5OFWYVP7wtDwoa306qdH0tYD02knV85JnA22uFgi5PAg6KpWlkuC17qa0fNkpvWk8JQGg0L40CQWjg5HxUbaQCWoBPfn_kYm_3gDseLN_PneBv_2DwKQwP97_cIeKd0hQ"
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/quiz/578849bf3dd5595d50075610",
+				"title": "Chapter Quiz",
+				"duration": "",
+				"quiz": "4 questions",
+				"videoUrl": ""
+			},
+			{
+				"url": "https://www.linkedin.com/learning/node-js-essential-training/next-steps?autoplay=true",
+				"title": "Next steps",
+				"duration": "2m 4s",
+				"quiz": "",
+				"videoUrl": "https://files3.lynda.com/secure/courses/417077/VBR_MP4h264_main_SD/417077_12_01_XR15_nextsteps.mp4?N6QHT4RCmHnU_SAr-Bw1KYJ4yLKCxD2jMRiLZ4OUaY8IABvt0PNS43Eb1d1vvh9pSgubBeYJwEwT1FX0b-HAkjn4rdKwUPpDbwgJjbiystPTscynNM0-CixCe9AH-rq4BHT0xqxTjVhYgEx-uTkiwxUqym2sCsAJo4JQ6vtnDbjMIM1p3cIe0Q"
+			}
+		]
+	},
+	"learning-react-native-2": {
+		"root": "https://www.linkedin.com/learning/learning-react-native-2",
+		"chapterURLs": [],
+		"chapterVideoURLs": []
+	}
+}

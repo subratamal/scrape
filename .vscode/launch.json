@@ -9,9 +9,9 @@
           "request": "launch",
           "name": "Nodemon Local Debugger",
           "runtimeExecutable": "nodemon",
-          "program": "${workspaceFolder}/src/index.js",
+          "program": "${workspaceFolder}/lib/index.js",
           "runtimeArgs": [
-            "--ignore", "${workspaceFolder}/src/config/*"
+            "--ignore", "${workspaceFolder}/config/courses.json"
           ],
           "restart": true,
           "console": "integratedTerminal",
