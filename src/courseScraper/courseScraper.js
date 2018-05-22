@@ -79,12 +79,18 @@ class CourseScraper extends EventEmitter {
       waitUntil: 'networkidle2',
     });
 
-    await this.getCourseChapterMeta(this.courseName);
-    await this.getAllChapterURLsForCourse(this.courseName);
+    await this.getCourseChapterMeta();
+    await this.getAllChapterURLsForCourse();
     await this.browser.close();
   }
 
-  async getChapterURLsForCourse(courseName, options) {
+  setVideoUrl(url, videoUrl) {
+    const { chaptersMeta } = coursesMetaConfig[this.courseName];
+    const chapter = chaptersMeta.find(chapterL => chapterL.url === url);
+    chapter.videoUrl = videoUrl;
+  }
+
+  async getChapterURLsForCourse(options) {
     const {
       pageNo,
       pageSize,
@@ -92,68 +98,89 @@ class CourseScraper extends EventEmitter {
     } = options;
 
     const {
-      chapterURLs,
-    } = coursesMetaConfig[courseName];
+      chaptersMeta,
+    } = coursesMetaConfig[this.courseName];
 
-    const sNO = (pageNo * pageSize) < chapterURLs.length ? (pageNo * pageSize) : chapterURLs.length;
-    const eNo = ((pageNo + 1) * pageSize) < chapterURLs.length ? ((pageNo + 1) * pageSize) : chapterURLs.length;
+    const sNO = (pageNo * pageSize) < chaptersMeta.length ? (pageNo * pageSize) : chaptersMeta.length;
+    const eNo = ((pageNo + 1) * pageSize) < chaptersMeta.length ? ((pageNo + 1) * pageSize) : chaptersMeta.length;
 
-    const videoUrlPromises = chapterURLs.slice(sNO, eNo).map(async (href, idx) => {
+    const videoUrlPromises = chaptersMeta.slice(sNO, eNo).map(async ({ url }, idx) => {
       const chapterPage = await (chapterPagesCached[idx] || this.browser.newPage());
       chapterPagesCached.push(chapterPage);
-      await chapterPage.goto(href, {
+      await chapterPage.goto(url, {
         waitUntil: 'networkidle2',
       });
       const videoUrl = await chapterPage.evaluate(() => {
         const videoEl = document.querySelector('.vjs-tech');
         return videoEl ? videoEl.getAttribute('src') : '';
       });
-      return videoUrl;
+      this.setVideoUrl(url, videoUrl);
     });
 
-    const videoUrls = await Promise.all(videoUrlPromises);
-    return {
-      videoUrls,
-    };
+    await Promise.all(videoUrlPromises);
   }
 
-  async getAllChapterURLsForCourse(courseName) {
+  async getAllChapterURLsForCourse() {
     const pageSize = config.courseScrapeMeta.page.PAGE_SIZE;
     const chapterPagesCached = range(pageSize).map(() => this.browser.newPage());
 
-    const videoUrlsAll = [];
     const {
-      chapterURLs,
-    } = coursesMetaConfig[courseName];
-    const pageNos = Math.ceil(chapterURLs.length / pageSize);
+      chaptersMeta,
+    } = coursesMetaConfig[this.courseName];
+    const pageNos = Math.ceil(chaptersMeta.length / pageSize);
     /* eslint-disable no-await-in-loop */
     for (let idx = 0; idx < pageNos; idx += 1) {
-      const {
-        videoUrls,
-      } = await this.getChapterURLsForCourse(courseName, {
+      await this.getChapterURLsForCourse({
         coursesMetaConfig,
         pageNo: idx,
         pageSize,
         chapterPagesCached,
       });
-      videoUrlsAll.push(...videoUrls);
     }
-
-    coursesMetaConfig[courseName].chapterVideoURLs = videoUrlsAll;
     await jsonWriter(path.resolve('config/courses.json'), coursesMetaConfig);
-    signale.success(`Video URLs prepared for Course Name "${courseName}": ${videoUrlsAll.join('\n')}`);
+    signale.success(`Video Urls prepared for Course Name "${this.courseName}".`);
   }
 
-  async getCourseChapterMeta(courseName) {
-    const url = coursesMetaConfig[courseName].root;
-    await this.page.goto(url);
-    // eslint-disable-next-line no-unused-vars
-    this.page.evaluate(_ => window.scrollBy(0, window.innerHeight));
+  async getCourseChapterMeta() {
+    const rootURL = coursesMetaConfig[this.courseName].root;
+    await this.page.goto(rootURL);
+    this.page.evaluate(() => window.scrollBy(0, window.innerHeight));
     await this.page.waitForSelector('.course-chapter__items .toc-item');
-    const hrefs = await this.page.$$eval('.course-chapter__items .toc-item', elems => elems.map(elem => elem.href));
-    // console.log(hrefs);
-    coursesMetaConfig[courseName].chapterURLs = hrefs;
-    // const { videoUrls } = await chapterUrlsScrape(coursesMetaConfig, courseName, 0, 10);
+
+    const chaptersMeta = await this.page.evaluate(() => {
+      const wrapperEls = document.querySelectorAll('.course-chapter__items .toc-item');
+
+      const chaptersMetaL = Array.from(wrapperEls).map((el) => {
+        const url = el.href;
+        const titleEl = el.querySelector('.toc-item__content');
+        const durationEl = el.querySelector('.toc-item__meta .duration');
+        const quizEl = el.querySelector('.toc-item__meta .toc-type');
+
+        let title;
+        if (titleEl) {
+          // eslint-disable-next-line prefer-destructuring
+          title = titleEl.innerText.split('\n')[0];
+          if (title.match(/([\w\s]+)\(In progress\)$/)) {
+            // eslint-disable-next-line prefer-destructuring
+            title = title.match(/([\w\s]+)\(In progress\)$/)[1];
+            title = title.trim();
+          }
+        }
+        const duration = durationEl ? durationEl.innerText : '';
+        const quiz = quizEl ? quizEl.innerText : '';
+
+        return {
+          url,
+          title,
+          duration,
+          quiz,
+        };
+      });
+
+      return chaptersMetaL;
+    });
+
+    coursesMetaConfig[this.courseName].chaptersMeta = chaptersMeta;
   }
 }
 
