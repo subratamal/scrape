@@ -160,9 +160,10 @@ class CourseScraper extends EventEmitter {
         if (titleEl) {
           // eslint-disable-next-line prefer-destructuring
           title = titleEl.innerText.split('\n')[0];
-          if (title.match(/([\w\s]+)\(In progress\)$/)) {
-            // eslint-disable-next-line prefer-destructuring
-            title = title.match(/([\w\s]+)\(In progress\)$/)[1];
+          const titleRegex = /(?<title>[\w\s]+)\(In progress\)$/;
+          titleGroups = titleRegex.exec(title);
+          if (titleGroups) {
+            title = titleGroups.groups.title;
             title = title.trim();
           }
         }
