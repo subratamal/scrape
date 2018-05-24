@@ -1,10 +1,10 @@
 import path from 'path';
-import CourseScraper from './courseScraper';
-import CourseDownloader from './courseDownloader';
+import Scraper from './courseScraper';
+import Downloader from './courseDownloader';
 
 const courseName = 'node-js-essential-training';
 (async () => {
-  new CourseScraper(courseName).boot({
+  new Scraper(courseName).boot({
     headless: false,
     userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
     executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
@@ -14,6 +14,5 @@ const courseName = 'node-js-essential-training';
     setBypassCSP: true,
   });
 
-  await new CourseDownloader(courseName).downloadAll()
-    .then(dir => console.log(`All courses in the course '${CourseDownloader}' downloaded @${dir}.`));
+  await new Downloader(courseName).download();
 })();
