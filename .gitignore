@@ -65,3 +65,4 @@ typings/
 .idea/
 
 puppeteer-data-dir/
+downloads/

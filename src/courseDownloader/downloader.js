@@ -1,11 +1,8 @@
 import shell, { exec } from 'shelljs';
 import path from 'path';
-import {
-  EventEmitter
-} from 'events';
-import {
-  jsonReaderSync
-} from './../utils';
+import { EventEmitter } from 'events';
+import signale from 'signale';
+import { jsonReaderSync } from './../utils';
 
 const coursesMetaConfig = jsonReaderSync(path.resolve('config/courses.json'));
 
@@ -13,27 +10,27 @@ class Downloader extends EventEmitter {
   constructor(courseName) {
     super();
     this.courseName = courseName;
-    this.chapterVideoURLs = null;
   }
 
-  getChapterVideoURLs(courseName) {
-    const courseNameL = courseName || this.courseName;
-    if (!this.chapterVideoURLs) {
-      this.chapterVideoURLs = coursesMetaConfig[courseNameL] ? coursesMetaConfig[courseNameL].chapterVideoURLs : {};
-    }
-    return this.chapterVideoURLs;
+  getChaptersMeta() {
+    return coursesMetaConfig[this.courseName].chaptersMeta;
   }
 
-  setChapterVideoURLs(chapterVideoURLs) {
-    this.chapterVideoURLs = chapterVideoURLs;
-  }
+  // eslint-disable-next-line class-methods-use-this
+  async download() {
+    const chaptersMeta = this.getChaptersMeta();
+    const downloadPromises = chaptersMeta.map((chapterMeta) => {
+      const { videoUrl, title } = chapterMeta;
+      return new Promise((resolve, reject) => {
+        exec(`curl -o ${path.resolve('downloads/video.mp4')} ${videoUrl}`, (code, stdout, stderr) => {
+          signale.success(`Downloaded ${title} successfully!`);
+          resolve(code);
+        });
+      });
+    });
 
-  download(url) {
-    exec(`curl -o ${url}`)
-  }
-
-  downloadAll(urls) {
-
+    await Promise.all(downloadPromises);
+    signale.success(`Download chapters for ${this.courseName} completed successfully!`);
   }
 }
 
