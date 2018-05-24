@@ -20,10 +20,10 @@ class Downloader extends EventEmitter {
   async download() {
     const chaptersMeta = this.getChaptersMeta();
     const downloadPromises = chaptersMeta.map((chapterMeta) => {
-      const { videoUrl, title } = chapterMeta;
+      const { videoUrl, title, duration } = chapterMeta;
       return new Promise((resolve, reject) => {
-        exec(`curl -o ${path.resolve('downloads/video.mp4')} ${videoUrl}`, (code, stdout, stderr) => {
-          signale.success(`Downloaded ${title} successfully!`);
+        exec(`curl -o ${path.resolve(`downloads/${title}_${duration}.mp4`)} ${videoUrl}`, (code, stdout, stderr) => {
+          signale.success(`Downloaded Chapter: '${title}', of Course: '${this.courseName}' successfully!`);
           resolve(code);
         });
       });
