@@ -8,12 +8,13 @@ module.exports.jsonReader = (path) => {
   new Promise((resolve, reject) => {
     fs.readFile(path, (err, data = {}) => {
       if (err) {
-        signale.error(`Error reading file ${path}`);
+        signale.error(`Error reading (async) from the file ${path}`);
         reject(data);
+      } else {
+        const obj = JSON.parse(data);
+        signale.success(`Data read (async) from the file ${path}`);
+        resolve(obj);
       }
-      const obj = JSON.parse(data);
-      signale.success(`Data read from the file ${path}`);
-      resolve(obj);
     });
   });
 };
@@ -24,10 +25,10 @@ module.exports.jsonReaderSync = (path, options = {}) => {
   try {
     const json = fs.readFileSync(path, options);
     data = JSON.parse(json);
-    signale.success(`Data read from the file ${path}`);
+    signale.success(`Data read (sync) from the file ${path}.`);
   } catch (err) {
     data = {};
-    signale.error(`Error reading file ${path}`);
+    signale.error(`Error reading (sync) from the file ${path}.`);
     if (!silent) {
       throw new Error(err);
     }
@@ -42,10 +43,10 @@ module.exports.jsonWriter = (path, data) => {
 
     fs.writeFile(path, json, (err) => {
       if (err) {
-        signale.error(`Error reading file ${path}`);
+        signale.error(`Error writting (async) to file ${path}`);
         reject(err);
       }
-      signale.success(`Data written to the file ${path}`);
+      signale.success(`Data written (async) to the file ${path}`);
       resolve(json);
     });
   });
@@ -56,9 +57,9 @@ module.exports.jsonWriterSync = (path, data, options = {}) => {
   try {
     const json = JSON.stringify(data, null, '\t');
     fs.writeFileSync(path, json, options);
-    signale.success(`Data written to the file ${path}`);
+    signale.success(`Data written (sync) to the file ${path}.`);
   } catch (err) {
-    signale.error(`Error reading file ${path}`);
+    signale.error(`Error writting (sync) to file ${path}.`);
     if (!silent) {
       throw new Error(err);
     }
