@@ -2,8 +2,8 @@ import path from 'path';
 import Scraper from './courseScraper';
 import Downloader from './courseDownloader';
 
-const courseName = 'node-js-essential-training';
 (async () => {
+  const courseName = 'learning-amazon-web-services-lambda';
   await new Scraper(courseName).boot({
     headless: false,
     userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
@@ -14,5 +14,5 @@ const courseName = 'node-js-essential-training';
     setBypassCSP: true,
   });
 
-  // await new Downloader(courseName).download();
+  await new Downloader(courseName).download();
 })();
