@@ -1,4 +1,4 @@
-import { mkdir, cd, exec } from 'shelljs';
+import { mkdir, exec } from 'shelljs';
 import path from 'path';
 import { EventEmitter } from 'events';
 import signale from 'signale';
