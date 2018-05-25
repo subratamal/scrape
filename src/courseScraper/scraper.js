@@ -1,17 +1,18 @@
-import puppeteer from 'puppeteer';
 import path from 'path';
+import puppeteer from 'puppeteer';
 import signale from 'signale';
 import EventEmitter from 'events';
+import to from 'await-to-js';
 import {
   range,
   jsonReaderSync,
   jsonWriter,
 } from './../utils';
 
-const config = require('./../../config/config.dev.json');
+const config = require('./../../config/dev.config.json');
 
-const coursesMetaConfig = jsonReaderSync(path.resolve('config/courses.json'));
-class CourseScraper extends EventEmitter {
+global.coursesMetaConfig = global.coursesMetaConfig || jsonReaderSync(path.resolve('config/courses.json'));
+class Scraper extends EventEmitter {
   constructor(courseName, browser = {}, page = {}) {
     super();
     this.courseName = courseName;
@@ -19,28 +20,35 @@ class CourseScraper extends EventEmitter {
     this.page = page;
   }
 
-  async createBrowser(browserOptions = {}) {
-    const {
-      headless,
-      userDataDir,
-      executablePath,
-    } = browserOptions;
+  async createBrowser(options = {}) {
+    const resolution = {
+      x : 1920,
+      y : 1080,
+    };
 
-    this.browser = await puppeteer.launch({
-      headless,
-      userDataDir,
-      executablePath,
-    });
+    const defaultArgs = [
+      '--disable-gpu',
+      `--window-size=${ resolution.x },${ resolution.y }`,
+      '--no-sandbox',
+    ];
 
-    signale.info(`Browser version: ${await this.browser.version()}`);
+    const defaultOptions = {
+      args: defaultArgs,
+      timeout: 60000,
+    };
+
+    const browserOptions = Object.assign({}, defaultOptions, options);
+
+    this.browser = await puppeteer.launch(browserOptions);
+    signale.success(`Browser instance created. Version: ${await this.browser.version()}`);
   }
 
-  async createPage(pageOptions) {
+  async createPage(options) {
     const {
       width,
       height,
       setBypassCSP,
-    } = pageOptions;
+    } = options;
 
     this.page = await this.browser.newPage();
     await this.page.setViewport({
@@ -185,7 +193,7 @@ class CourseScraper extends EventEmitter {
   }
 }
 
-export default CourseScraper;
+export default Scraper;
 
 // eslint-disable-next-line no-underscore-dangle
 // await page._client.send('Page.setDownloadBehavior', {

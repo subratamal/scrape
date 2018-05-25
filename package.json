@@ -6,13 +6,15 @@
 	"license": "MIT",
 	"engines": {
 		"node": ">=7.6.0"
-  },
-  "scripts": {
-    "clean": "rm -rf lib/*",
-    "compile": "npx babel src --out-dir lib --copy-files --source-maps",
-    "build": "npm run clean && npm run compile"
-  },
+	},
+	"scripts": {
+		"clean": "rm -rf lib/*",
+		"compile": "npx babel src --out-dir lib --copy-files --source-maps",
+		"build": "npm run clean && npm run compile"
+	},
 	"dependencies": {
+		"await-to-js": "^2.0.1",
+		"change-case": "^3.0.2",
 		"puppeteer": "^1.4.0",
 		"shelljs": "^0.8.2",
 		"signale": "^1.0.1"
@@ -23,5 +25,5 @@
 		"eslint": "^4.19.1",
 		"eslint-config-airbnb-base": "^12.1.0",
 		"eslint-plugin-import": "^2.11.0"
-  }
+	}
 }
