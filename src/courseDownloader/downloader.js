@@ -1,10 +1,11 @@
-import shell, { exec } from 'shelljs';
+import { mkdir, cd, exec } from 'shelljs';
 import path from 'path';
 import { EventEmitter } from 'events';
 import signale from 'signale';
+import { snakeCase } from 'change-case';
 import { jsonReaderSync } from './../utils';
 
-const coursesMetaConfig = jsonReaderSync(path.resolve('config/courses.json'));
+global.coursesMetaConfig = global.coursesMetaConfig || jsonReaderSync(path.resolve('config/courses.json'));
 
 class Downloader extends EventEmitter {
   constructor(courseName) {
@@ -19,10 +20,14 @@ class Downloader extends EventEmitter {
   // eslint-disable-next-line class-methods-use-this
   async download() {
     const chaptersMeta = this.getChaptersMeta();
-    const downloadPromises = chaptersMeta.map((chapterMeta) => {
+    const downloadPromises = chaptersMeta.map((chapterMeta, slNo) => {
       const { videoUrl, title, duration } = chapterMeta;
       return new Promise((resolve, reject) => {
-        exec(`curl -o ${path.resolve(`downloads/${title}_${duration}.mp4`)} ${videoUrl}`, (code, stdout, stderr) => {
+        const downloadPath = path.resolve(`downloads/${snakeCase(this.courseName)}`);
+        const fileName = `${slNo.toString().padStart(2, '0')}-${snakeCase(title)} (${duration}).mp4`;
+        mkdir('-p', downloadPath);
+
+        exec(`curl -o '${downloadPath}/${fileName}' ${videoUrl}`, (code, stdout, stderr) => {
           signale.success(`Downloaded Chapter: '${title}', of Course: '${this.courseName}' successfully!`);
           resolve(code);
         });

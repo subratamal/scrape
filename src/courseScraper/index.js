@@ -1,3 +1,3 @@
-import CourseScraper from './courseScraper';
+import Scraper from './scraper';
 
-export default CourseScraper;
+export default Scraper;
