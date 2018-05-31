@@ -3,7 +3,7 @@ import Scraper from './courseScraper';
 import Downloader from './courseDownloader';
 
 (async () => {
-  const courseName = 'learning-amazon-web-services-lambda';
+  const courseName = 'learning-react-native-2';
   await new Scraper(courseName).boot({
     headless: false,
     userDataDir: path.join(__dirname, '../puppeteer-data-dir'),
