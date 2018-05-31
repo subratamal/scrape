@@ -35,6 +35,7 @@ class Scraper extends EventEmitter {
     const defaultOptions = {
       args: defaultArgs,
       timeout: 60000,
+      userDataDir: path.resolve('puppeteer-data-dir')
     };
 
     const browserOptions = Object.assign({}, defaultOptions, options);
