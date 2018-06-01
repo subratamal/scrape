@@ -4,8 +4,11 @@ import Downloader from './courseDownloader';
 import { puppeteerMeta, pageMeta } from './../config/dev.config.json';
 
 (async () => {
-  const courseName = 'learning-react-native-2';
-  await new Scraper(courseName).boot(puppeteerMeta, pageMeta);
+  const courseName = 'sketch-essential-training-the-basics-2';
+  const scraper = await new Scraper(courseName).boot(puppeteerMeta, pageMeta);
+  await scraper.getCourseChapterMeta();
+  await scraper.getAllChapterURLsForCourse();
+  await scraper.closeBrowser();
 
   await new Downloader(courseName).download();
 })();

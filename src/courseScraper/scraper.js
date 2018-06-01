@@ -44,6 +44,10 @@ class Scraper extends EventEmitter {
     signale.success(`Browser instance created. Version: ${await this.browser.version()}`);
   }
 
+  async closeBrowser() {
+    await this.browser.close();
+  }
+
   async createPage(options) {
     const {
       width,
@@ -88,9 +92,7 @@ class Scraper extends EventEmitter {
       waitUntil: 'networkidle2',
     });
 
-    await this.getCourseChapterMeta();
-    await this.getAllChapterURLsForCourse();
-    await this.browser.close();
+    return this;
   }
 
   setVideoUrl(url, videoUrl) {

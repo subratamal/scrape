@@ -1,18 +1,18 @@
 {
 	"node-js-essential-training": {
 		"root": "https://www.linkedin.com/learning/node-js-essential-training",
-    "processed": false
-  },
+		"processed": false
+	},
 	"learning-react-native-2": {
 		"root": "https://www.linkedin.com/learning/learning-react-native-2",
 		"processed": false
 	},
-	"sketch-for-ux-design": {
-		"root": "https://www.linkedin.com/learning/sketch-for-ux-design",
+	"sketch-essential-training-the-basics-2": {
+		"root": "https://www.linkedin.com/learning/sketch-essential-training-the-basics-2",
 		"processed": false
 	},
 	"learning-amazon-web-services-lambda": {
-    "root": "https://www.linkedin.com/learning/learning-amazon-web-services-lambda",
-    "processed": false
+		"root": "https://www.linkedin.com/learning/learning-amazon-web-services-lambda",
+		"processed": false
 	}
 }
